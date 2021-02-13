@@ -93,7 +93,9 @@ public class Steps {
 		}catch (NoSuchElementException e) {
 		    System.out.println("Element is not present, hence not displayed!");
 		}
+		
+		driver.quit();
 	}
-
+	
 
 }
