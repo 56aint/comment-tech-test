@@ -21,8 +21,10 @@ public class LoginCpage {
 	By txtEmail = By.xpath("//input[@id='user-identifier-input']");
 	By txtPassword = By.xpath("//input[@id='password-input']");
 	By btnSignIn = By.xpath("//button[@class='button button--full-width']"); 
+	By unameIcon = By.xpath("//span[@class='ssrcss-q3rgld-AccountIconWrapper eki2hvo12']");
+	By lnkSignOut = By.xpath("//span[@class='primary-nav__item-text'][contains(text(),'Sign out')]");
 	
-	public void setSign() {
+	public void clickSign() {
 		driver.findElement(lnkSign).click();
 	}
 	
@@ -36,7 +38,15 @@ public class LoginCpage {
 		driver.findElement(txtPassword).sendKeys(pswd);
 	}
 	
-	public void setbtnSign() {
+	public void clickbtnSign() {
 		driver.findElement(btnSignIn).click();
+	}
+	
+	public void clickUnameIcon() {
+		driver.findElement(unameIcon).click();
+	}
+	
+	public void clicklnkSignOut() {
+		driver.findElement(lnkSignOut).click();
 	}
 }
