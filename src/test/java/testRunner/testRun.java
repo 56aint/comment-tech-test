@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 		features = ".//Features/Comment.feature", 
 		glue = "stepDefinitions", 
-		dryRun = true, 
+		dryRun = false, 
 		monochrome = true, 
 		plugin = { "pretty", "html:target/cucumber-report.html" },
 		publish = true

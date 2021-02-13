@@ -17,7 +17,7 @@ public class CommentPage {
 	     
 	
 	public void clickTxtareabox() {
-		driver.findElement(txtareabox).click();
+		driver.findElements(txtareabox).size();
 	}
 }
 

@@ -1,5 +1,6 @@
 package stepDefinitions;
 
+import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Assert;
@@ -7,11 +8,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.NoSuchElementException;
-import java.util.concurrent.TimeUnit;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
+import pageObjects.CommentPage;
 import pageObjects.LoginCpage;
 
 import io.cucumber.java.en.*;
@@ -20,13 +17,16 @@ public class Steps {
 	
 	public WebDriver driver;
 	public LoginCpage lcp;
+	public CommentPage comntPage;
+	
+	// User Sign-in feature steps
 	
 	@Given("User Launch Chrome browser")
 	public void user_launch_chrome_browser() {
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"//Drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		
-		lcp=new LoginCpage(driver);
+		lcp = new LoginCpage(driver);
 	}
 
 	@When("User opens URL {string}")
@@ -77,4 +77,23 @@ public class Steps {
 	public void close_browser() {
 	    driver.quit();
 	}
+	
+	// Commenting feature steps
+	
+	@Then("user should not be able to click on textarea if not enabled")
+	public void user_should_be_able_to_click_on_textarea() {
+		driver.get("https://www.bbc.co.uk/news/health-47742899#comp-comments-button");
+		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		try{
+		    if(driver.findElements(By.xpath("//input[@class='comments-input-box']")).size() > 0)
+		        System.out.println("Element is present and displayed");
+		    else
+		        System.out.println("Element is present but not enabled"); 
+		}catch (NoSuchElementException e) {
+		    System.out.println("Element is not present, hence not displayed!");
+		}
+	}
+
+
 }
