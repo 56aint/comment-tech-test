@@ -28,7 +28,11 @@ To interact with this project on eclipse your local machine:
 *fork the repo:
   ```git clone git@github.com:56aint/comment-tech-test```
   To run:
-  ```open testRunner/testRun.java, right click and run as JunitTest
+  ```open testRunner/testRun.java, right click and run as JunitTest```
+  Switch feature to run:
+  features = ".//Features/Comment.feature",
+  features = ".//Features/LoginComment.feature"
+  Cucumber report is available via the link at the console
   
 
 ###CHROMEDRIVER AND CUCUMBER INSTALLATION
