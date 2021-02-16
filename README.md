@@ -32,7 +32,9 @@ To interact with this project on eclipse your local machine:
   Switch feature to run:
   features = ".//Features/Comment.feature",
   features = ".//Features/LoginComment.feature"
-  Cucumber report is available via the link at the console
+  Cucumber report is available via the link at the console (view the link and send to anyone/stakeholders)
+  Or You can view report locally by opening: target(folder) -> right click on cucumber-report-html and 
+    open with system editor (microsoft edge browser)
   
 
 ###CHROMEDRIVER AND CUCUMBER INSTALLATION
